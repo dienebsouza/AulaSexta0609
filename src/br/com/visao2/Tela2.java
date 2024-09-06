@@ -4,12 +4,14 @@
  */
 package br.com.visao2;
 
+import br.com.controle2.Mercado;
+
 /**
  *
  * @author laboratorio
  */
 public class Tela2 extends javax.swing.JFrame {
-
+    Mercado m = new Mercado();
     /**
      * Creates new form Tela2
      */
@@ -26,21 +28,80 @@ public class Tela2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jTvalor = new javax.swing.JTextField();
+        jBcalcular = new javax.swing.JButton();
+        jLmaior = new javax.swing.JLabel();
+        jLvalorentre = new javax.swing.JLabel();
+        jLdesconto = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Digite o valor da compra:");
+
+        jBcalcular.setText("calcular");
+        jBcalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcalcularActionPerformed(evt);
+            }
+        });
+
+        jLmaior.setText("0.00");
+
+        jLvalorentre.setText("0.00");
+
+        jLdesconto.setText("0.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLmaior)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLvalorentre)
+                            .addComponent(jLdesconto)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jBcalcular)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jBcalcular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jLmaior)
+                .addGap(18, 18, 18)
+                .addComponent(jLvalorentre)
+                .addGap(18, 18, 18)
+                .addComponent(jLdesconto)
+                .addGap(104, 104, 104))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcalcularActionPerformed
+        // TODO add your handling code here:
+        m.setValordaCompra(Double.valueOf(jTvalor.getText()));
+        
+        jLmaior.setText("Maior compra: " + m.resp_maior());
+        jLvalorentre.setText("Compras entre 200 e 500: " + m.resp_entre());
+        jLdesconto.setText("Desconto da compra: " + m.resp_desconto());
+    }//GEN-LAST:event_jBcalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +139,11 @@ public class Tela2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBcalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLdesconto;
+    private javax.swing.JLabel jLmaior;
+    private javax.swing.JLabel jLvalorentre;
+    private javax.swing.JTextField jTvalor;
     // End of variables declaration//GEN-END:variables
 }

@@ -109,7 +109,7 @@ public class Tela extends javax.swing.JFrame {
        // n1 = (Double.valueOf(jTvalor1.getText()));
        // n2 = (Double.valueOf(jTvalor2.getText()));
        //s.calcular_Media(n1, n2)
-       s.calcular_Media(v1, v2);
+        s.calcular_Media(v1, v2);
         jLmenor.setText("Menor média: " + s.resp_menor());
         jLmedia.setText("Média da turma: " + s.resp_Media_Turma());
 
