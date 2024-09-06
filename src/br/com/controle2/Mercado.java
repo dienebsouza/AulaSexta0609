@@ -13,7 +13,7 @@ public class Mercado {
     private double desconto;
     double entre;
     double maior;
-    double qtd;
+    int qtd;
 
     public double getValordaCompra() {
         return valordaCompra;
